@@ -27,6 +27,6 @@
 /* input:invalid{
     border: 2px solid rgb(221, 162, 162);
 } */
-input:valid{
+.inputs:valid{
     border: 2px solid green;
 }

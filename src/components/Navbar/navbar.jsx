@@ -27,7 +27,7 @@ const Navbar = () => {
             <Link className="nav-link">Contact</Link>
           </div>
           <div className={styles.navbar__button}>
-             <Button children= "SIGN UP" onclick={signup}/>
+             <Button children= "SIGN UP" onclick={signup} mainbutton={true}/>
               {/* <button>on/off</button> */}
           </div>
         </ul>
