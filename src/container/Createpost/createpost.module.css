@@ -1,0 +1,30 @@
+.body{
+    /* background-color: ; */
+    width: 100%;
+    
+}
+.input_box{
+    margin: auto;
+    width: 70%;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    padding-bottom: 30px;
+    /* border: thin solid black; */
+    box-shadow: 1px 1px 5px 1px rgb(196, 196, 196) ;
+}
+.input_box_heading{
+    position: relative;
+    bottom: 30px;
+
+}
+.input_box__textarea{
+    font-family: 'Work Sans', sans-serif;
+    outline: none;
+    border: none;
+    min-width: 92%;
+    height: 300px;
+    padding: 25px 30px;
+    font-size: large;
+    border-radius: 50px
+}

@@ -1,0 +1,28 @@
+.background {
+  background-image: url("../../assets/background.png");
+  height: 87.7vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.background__card {
+  /* width: 40%; */
+  background-color: white;
+  width: 30%;
+  height: 174px;
+  top: 360px;
+  left: 64px;
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px;
+  gap: 24px;
+  position: relative;
+  top: 317px;
+}
+.background__title{
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 35px;
+    letter-spacing: 0em;
+    text-align: left;
+    
+}
