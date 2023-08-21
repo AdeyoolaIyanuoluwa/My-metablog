@@ -33,12 +33,15 @@
   border-radius: 10px;
   border: 1px solid #c0c0c0;
 }
-.icon{
-  /* display: flex; */
-}
 .hideicon{
-    /* width: 20px; */
     position: relative;
     left: 360px;
     bottom: 45px;
 }
+.span{
+  text-align: center;
+}
+.error{
+  color: red;
+}
+

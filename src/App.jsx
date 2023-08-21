@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/navbar";
 import Herosection from "./container/Hero-section/herosection";
 import Signup from "./container/Signup/signup";
+import Login from "./container/Login/login";
 // import Signup from "./container/Sign-up/signup";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
               
               <Route path="/" element={<Herosection/>}/>
               <Route path="/signup" element={<Signup/>}/>
+              <Route path="/login" element={<Login/>}/>
         </Routes>
        </Router>
     </>
