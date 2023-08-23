@@ -6,6 +6,7 @@ import styles from "./signup.module.css";
 import Input from "../../components/Input/input";
 import Button from "../../components/Button/button";
 import hide from "../../assets/Hide.png";
+// import { faEye} from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { validationSchema } from "./signupSchema";
@@ -14,7 +15,7 @@ import { useEffect } from "react";
 import { userSignup } from "../../features/Register/validationactions";
 
 const Signup = () => {
-  const { load, loading } = useSelector((state) => state.validation);
+  const { loading } = useSelector((state) => state.validation);
   console.log(loading);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,11 +25,12 @@ const Signup = () => {
     email: "",
     password: "",
   };
-  // useEffect(() => {
-  //   if(load?.status === 'success'){
-  //       navigate("/login")
-  //   }
-  // }, [load?.status])
+
+  useEffect(() => {
+    if(loading?.status === 'success'){
+        navigate("/login")
+    }
+  }, [loading?.status])
 
   const formik = useFormik({
     validationSchema,
@@ -56,7 +58,6 @@ const Signup = () => {
           Sign up to get started
         </p>
       </div>
-
       <form onSubmit={formik.handleSubmit}>
         <div className={styles.signup_container_name}>
           <div className={styles.signup_container_name_box}>
@@ -106,6 +107,7 @@ const Signup = () => {
             type="text"
             placeholder="*************"
           />
+              {/* <faEye/> */}
           <img src={hide} alt="hideicon" className={styles.hideicon} />
           <p className={styles.error}>{formik.errors.password}</p>
         </div>
