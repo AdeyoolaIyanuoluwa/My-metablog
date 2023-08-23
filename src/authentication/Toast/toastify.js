@@ -10,6 +10,7 @@ export const successful = (message) => {
     draggable: true,
     progress: undefined,
     theme: "light",
+  
   });
 };
 

@@ -4,14 +4,14 @@ export const validationSchema = Yup.object({
   firstname: Yup.string()
     .min(2, "Name is too short")
     .max(20, "Name is too Long")
-    .required(),
+    .required("firstname is required"),
   lastname: Yup.string()
     .min(2, "Name is too short")
     .max(20, "Name is too Long")
-    .required(),
+    .required("lastname is required"),
   email: Yup.string().email("Invalid Email").required("Enter a valid Email"),
   password: Yup.string()
-    .required()
+    .required("password is required")
     .trim()
     .matches(
       /(?=.*[A-Z])/,

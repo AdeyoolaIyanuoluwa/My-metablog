@@ -1,39 +1,53 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-children-prop */
 // import React from 'react'
 import styles from "./signup.module.css";
 import Input from "../../components/Input/input";
 import Button from "../../components/Button/button";
 import hide from "../../assets/Hide.png";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { validationSchema } from "./signupSchema";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { userSignup } from "../../features/Register/validationactions";
 
 const Signup = () => {
-
-
+  const { load, loading } = useSelector((state) => state.validation);
+  console.log(loading);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const initialValues = {
     firstname: "",
     lastname: "",
     email: "",
     password: "",
   };
-  // const navigate = useNavigate();
-  // const handlechange = () => {};
-  // const signup = () => {
-  //   navigate("/login");
-  // };
+  // useEffect(() => {
+  //   if(load?.status === 'success'){
+  //       navigate("/login")
+  //   }
+  // }, [load?.status])
 
   const formik = useFormik({
     validationSchema,
     initialValues,
     onSubmit: (value) => {
       console.log(value);
+      dispatch(
+        userSignup({
+          first_name: value.firstname,
+          last_name: value.lastname,
+          email_address: value.email,
+          password: value.password,
+        })
+      );
+      navigate("/login");
     },
   });
   return (
     <div className={styles.signup_container}>
-      {/* <Formik initialValues={initialValues} validationSchema={signupSchema} onSubmit={(values)}> */}
-      {/* {(formik) =>{}} */}
       <div className={styles.signup_container_heading}>
         <h1 className={styles.signup_container_heading_h1}>
           Enter your email to sign up
@@ -42,29 +56,32 @@ const Signup = () => {
           Sign up to get started
         </p>
       </div>
-      <div>
+
+      <form onSubmit={formik.handleSubmit}>
         <div className={styles.signup_container_name}>
           <div className={styles.signup_container_name_box}>
             <div>First name</div>
-            <input
+            <Input
               type="text"
+              placeholder="Enter Name"
               onChange={formik.handleChange}
               name="firstname"
-              value={formik.firstname}
+              value={formik.first_name}
               className={styles.signup_container_name_input}
             />
             <p className={styles.error}>{formik.errors.firstname}</p>
           </div>
           <div>
             <div>Last name</div>
-            <input
+            <Input
               type="text"
+              placeholder="Enter Name"
               onChange={formik.handleChange}
               name="lastname"
-              value={formik.lastname}
+              value={formik.last_name}
               className={styles.signup_container_name_input}
             />
-             <p className={styles.error}>{formik.errors.lastname}</p>
+            <p className={styles.error}>{formik.errors.lastname}</p>
           </div>
         </div>
 
@@ -72,12 +89,13 @@ const Signup = () => {
         <Input
           maininput={false}
           name="email"
-          value={formik.email}
+          value={formik.email_address}
           onchange={formik.handleChange}
+          onBlur={formik.onBlur}
           type="text"
           placeholder="Enter Email"
         />
-         <p className={styles.error}>{formik.errors.email}</p>
+        <p className={styles.error}>{formik.errors.email}</p>
         <p>Password</p>
         <div className={styles.icon}>
           <Input
@@ -92,15 +110,11 @@ const Signup = () => {
           <p className={styles.error}>{formik.errors.password}</p>
         </div>
 
-        <Button
-          children="Sign Up"
-          mainbutton={false}
-          onclick={formik.handleSubmit}
-        />
+        <Button children="Sign Up" mainbutton={false} type="submit" />
         <div className={styles.span}>
           <span>Already have an account?Login</span>
         </div>
-      </div>
+      </form>
       {/* </Formik> */}
     </div>
   );

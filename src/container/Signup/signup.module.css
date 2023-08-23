@@ -24,8 +24,13 @@
   margin-bottom: 20px;
 }
 .signup_container_name {
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 24px;
+}
+.signup_container_name input {
+  width: 100%;
 }
 .signup_container_name_input {
   width: 193px;
@@ -33,15 +38,14 @@
   border-radius: 10px;
   border: 1px solid #c0c0c0;
 }
-.hideicon{
-    position: relative;
-    left: 360px;
-    bottom: 45px;
+.hideicon {
+  position: relative;
+  left: 360px;
+  bottom: 45px;
 }
-.span{
+.span {
   text-align: center;
 }
-.error{
+.error {
   color: red;
 }
-

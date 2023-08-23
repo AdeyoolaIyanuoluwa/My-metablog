@@ -1,29 +1,32 @@
 .inputs{
     outline: none;
     border: none;
-    /* border: thin solid black; */
-    min-width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    font-size: large;
     border-radius: 50px;
     /* background: transparent; */
 }
 .secondinput{
-    /* min-width: 50%; */
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    font-size: large;
     width: 410px;
     height: 56px;
     border-radius: 10px;
     border: 1px solid 
     #AEAEAE;
     
-
 }
+/* .secondinput :hover {
+    border: thick solid blue !important;
+  } */
+/* .inputs ::placeholder {
+    color: #757575;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  } */
 /* input:invalid{
     border: 2px solid rgb(221, 162, 162);
 } */

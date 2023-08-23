@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 // import React from 'react'
 import styles from "./input.module.css";
-const Input = ({ onchange, value, type, placeholder, name,useref,maininput }) => {
+const Input = ({ onchange, value, type, placeholder, name,useref,maininput,onBlur }) => {
   return (
     <div>
       <input
@@ -12,7 +12,7 @@ const Input = ({ onchange, value, type, placeholder, name,useref,maininput }) =>
         type={type}
         placeholder={placeholder}
         ref={useref}
-        required
+        onBlur={onBlur}
       />
     </div>
   );
