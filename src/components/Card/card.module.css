@@ -1,0 +1,42 @@
+.cardcontainer {
+  width: 392px;
+  height: 488px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px;
+  gap: 16px;
+
+  border: thin solid red;
+}
+.imagecontainer {
+  width: 375.5px;
+  height: 240px;
+  border-radius: 6px;
+  border: thin solid blue;
+}
+.image {
+  width: 224px;
+  /* height: 304px; */
+}
+.cardcontainer__title {
+  width: 360px;
+  height: 200px;
+  padding: 8px;
+  gap: 20px;
+  border: thin solid red;
+}
+.name {
+    display: flex;
+    width: 40%;
+    justify-content: space-evenly;
+    border: thin solid red;
+    align-items: center;
+    position: relative;
+    top: 4px;
+    color: rgb(66, 63, 63);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+  }

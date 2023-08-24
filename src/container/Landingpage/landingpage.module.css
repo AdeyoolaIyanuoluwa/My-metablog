@@ -1,0 +1,46 @@
+.background {
+  background-image: url("../../assets/background.png");
+  height: 77.7vh;
+  background-size: cover;
+  /* margin-left: 100px; */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.background__card {
+  width: 40%;
+  height: 174px;
+  top: 360px;
+  left: 64px;
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px;
+  gap: 24px;
+  position: relative;
+  top: 217px;
+  color: white;
+}
+.background__title {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 35px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.name {
+  display: flex;
+  width: 40%;
+  justify-content: space-evenly;
+  border: thin solid red;
+  align-items: center;
+  position: relative;
+  top: 20px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.blog__h1{
+    
+}

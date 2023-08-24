@@ -42,4 +42,10 @@
   .span{
     text-align: center;
   }
+  .span__login{
+    color: blue !important;
+  }
+  .error{
+    color: red !important;
+  }
   

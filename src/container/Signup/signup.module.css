@@ -32,12 +32,12 @@
 .signup_container_name input {
   width: 100%;
 }
-.signup_container_name_input {
+/* .signup_container_name_input {
   width: 193px;
   height: 56px;
   border-radius: 10px;
-  border: 1px solid #c0c0c0;
-}
+  border: 1px solid #c0c0c0; 
+} */
 .hideicon {
   position: relative;
   left: 360px;
@@ -48,4 +48,7 @@
 }
 .error {
   color: red;
+}
+.span__login{
+  color: blue !important;
 }

@@ -7,7 +7,7 @@ import Input from "../../components/Input/input";
 import Button from "../../components/Button/button";
 import hide from "../../assets/Hide.png";
 // import { faEye} from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { validationSchema } from "./signupSchema";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,7 +15,7 @@ import { useEffect } from "react";
 import { userSignup } from "../../features/Register/validationactions";
 
 const Signup = () => {
-  const { loading } = useSelector((state) => state.validation);
+  const { loading, userInfo } = useSelector((state) => state.validation);
   console.log(loading);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -27,10 +27,10 @@ const Signup = () => {
   };
 
   useEffect(() => {
-    if(loading?.status === 'success'){
-        navigate("/login")
+    if (userInfo?.status === "success") {
+      navigate("/login");
     }
-  }, [loading?.status])
+  }, [navigate, userInfo?.status]);
 
   const formik = useFormik({
     validationSchema,
@@ -45,7 +45,7 @@ const Signup = () => {
           password: value.password,
         })
       );
-      navigate("/login");
+      // navigate("/login");
     },
   });
   return (
@@ -61,26 +61,34 @@ const Signup = () => {
       <form onSubmit={formik.handleSubmit}>
         <div className={styles.signup_container_name}>
           <div className={styles.signup_container_name_box}>
-            <div>First name</div>
+            
+            <p>First name</p>
             <Input
-              type="text"
+            maininput={false}
+            name="firstname"
+            value={formik.first_name}
+            onchange={formik.handleChange}
+            onBlur={formik.onBlur}
+            type="text"
               placeholder="Enter Name"
-              onChange={formik.handleChange}
-              name="firstname"
-              value={formik.first_name}
-              className={styles.signup_container_name_input}
+              // className={styles.signup_container_name_input}
             />
             <p className={styles.error}>{formik.errors.firstname}</p>
           </div>
+
+
+
           <div>
-            <div>Last name</div>
+           <div>Last name</div>
             <Input
-              type="text"
-              placeholder="Enter Name"
-              onChange={formik.handleChange}
-              name="lastname"
-              value={formik.last_name}
-              className={styles.signup_container_name_input}
+            maininput={false}
+            name="lastname"
+            value={formik.last_name}
+            onchange={formik.handleChange}
+            onBlur={formik.onBlur}
+            type="text"
+            placeholder="Enter Name"
+              // className={styles.signup_container_name_input}
             />
             <p className={styles.error}>{formik.errors.lastname}</p>
           </div>
@@ -107,14 +115,19 @@ const Signup = () => {
             type="text"
             placeholder="*************"
           />
-              {/* <faEye/> */}
+          {/* <faEye/> */}
           <img src={hide} alt="hideicon" className={styles.hideicon} />
           <p className={styles.error}>{formik.errors.password}</p>
         </div>
 
-        <Button children="Sign Up" mainbutton={false} type="submit" />
+        <Button children="Sign Up" mainbutton={false} type="submit" loading={loading}  />
         <div className={styles.span}>
-          <span>Already have an account?Login</span>
+          <span>
+            Already have an account?
+            <Link to="/login" className={styles.span__login}>
+              Login
+            </Link>
+          </span>
         </div>
       </form>
       {/* </Formik> */}
