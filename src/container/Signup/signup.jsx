@@ -45,7 +45,6 @@ const Signup = () => {
           password: value.password,
         })
       );
-      // navigate("/login");
     },
   });
   return (
@@ -71,7 +70,6 @@ const Signup = () => {
             onBlur={formik.onBlur}
             type="text"
               placeholder="Enter Name"
-              // className={styles.signup_container_name_input}
             />
             <p className={styles.error}>{formik.errors.firstname}</p>
           </div>
@@ -88,7 +86,6 @@ const Signup = () => {
             onBlur={formik.onBlur}
             type="text"
             placeholder="Enter Name"
-              // className={styles.signup_container_name_input}
             />
             <p className={styles.error}>{formik.errors.lastname}</p>
           </div>
@@ -115,7 +112,6 @@ const Signup = () => {
             type="text"
             placeholder="*************"
           />
-          {/* <faEye/> */}
           <img src={hide} alt="hideicon" className={styles.hideicon} />
           <p className={styles.error}>{formik.errors.password}</p>
         </div>
@@ -130,7 +126,6 @@ const Signup = () => {
           </span>
         </div>
       </form>
-      {/* </Formik> */}
     </div>
   );
 };

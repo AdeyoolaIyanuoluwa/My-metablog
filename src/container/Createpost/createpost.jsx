@@ -2,38 +2,15 @@
 // import React from 'react'
 import styles from "./createpost.module.css";
 import Input from "../../components/Input/input";
-import Button from "../../components/Button/button";
-// import axios from "axios";
-// import baseUrl from "../../baseUrl";
-import instance from "../../../services/axios";
+import Button from "../../components/Button/button";-
+// import { useDispatch } from "react-redux";
+import { useFormik } from "formik";
 
 const  Createpost= () => {
+  // const dispatch = useDispatch()  
+  const formik = useFormik({
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = new FormData()
-
-    // form.append("title", title.current.value);
-    // form.append("subtitle", subtitle.current.value);
-    // form.append("cover", cover.current.files[0]);
-    // // console.log();
-    // console.log(title.current.value);
-    // console.log(subtitle.current.value);
-    // console.log(cover.current.files);
-    // console.log(typeof form);
-    // console.log(instance);
-    instance
-      .post(`/blog/add_post`, form)
-      .then((res) => {
-        console.log(res);
-        alert("successful")
-      })
-      .catch((err) => {
-        console.log(err.response);
-        alert("error")
-      })
-      
-  };
+  })
   return (
     <div className={styles.body}>
       <div className={styles.input_box}>
