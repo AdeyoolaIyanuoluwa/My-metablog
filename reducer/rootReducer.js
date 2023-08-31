@@ -1,10 +1,11 @@
 import { combineReducers } from "redux";
-import validationReducer from "../src/features/Register/validationslice";
-import postReducer from "../src/features/Post/addpostslice";
+import validationSlice from "../src/features/Register/validationslice";
+import postSlice from "../src/features/post/addpostslice";
+// import postReducer from "../src/features/Post/addpostactions"
 
 const appReducer = combineReducers({
-  validation: validationReducer,
-  post: postReducer,
+  validation: validationSlice,
+  posts: postSlice,
 });
 
 export const rootReducer = (state, action) => {

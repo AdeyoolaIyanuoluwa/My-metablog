@@ -10,7 +10,7 @@ export const createpostSchema = Yup.object({
     .min(2, "Subtitle is too short")
     .max(20, "Subtitle is too long"),
 
-  files: Yup.mixed().test(
+  cover: Yup.mixed().test(
     "is-file-of-correct-type",
     "File is not of supported type",
     () => {
@@ -20,7 +20,7 @@ export const createpostSchema = Yup.object({
         const fileArr = Array.from(files);
         fileArr.forEach((file) => {
           const type = file.type.split("/")[1];
-          const validTypes = ["png", "jpeg", "svg"];
+          const validTypes = [png, jpeg, svg];
           if (!validTypes.includes(type)) {
             valid = false;
           }

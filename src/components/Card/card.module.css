@@ -1,42 +1,55 @@
 .cardcontainer {
-  width: 392px;
+  width: 360px;
   height: 488px;
   padding: 16px;
   border-radius: 12px;
   border: 1px;
   gap: 16px;
-
-  border: thin solid red;
+  border: thin solid rgb(184, 170, 170);
+  /* box-shadow: ; */
 }
 .imagecontainer {
-  width: 375.5px;
+  width: 360px;
   height: 240px;
   border-radius: 6px;
-  border: thin solid blue;
+  /* border: thin solid blue; */
 }
 .image {
-  width: 224px;
+  /* width: 224px; */
   /* height: 304px; */
+  width: 360px;
+height: 240px;
+border-radius: 6px;
+
 }
 .cardcontainer__title {
   width: 360px;
   height: 200px;
-  padding: 8px;
+  
   gap: 20px;
-  border: thin solid red;
+  /* border: thin solid red; */
+}
+.cardcontainer__title button{
+ color: #4B6BFB;
+  background: #f6f7ff;
+
+}
+.title{
+  font-weight: 800;
+  margin-bottom: 6px;
 }
 .name {
     display: flex;
-    width: 40%;
+    width: 90%;
     justify-content: space-evenly;
-    border: thin solid red;
+    /* border: thin solid red; */
     align-items: center;
     position: relative;
-    top: 4px;
+    /* top: 4px; */
     color: rgb(66, 63, 63);
     font-size: 16px;
     font-weight: 500;
-    line-height: 24px;
+    /* line-height: 24px; */
     letter-spacing: 0em;
     text-align: left;
   }

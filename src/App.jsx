@@ -5,8 +5,8 @@ import Signup from "./container/Signup/signup";
 import Login from "./container/Login/login";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import Langingpage from "./container/Landingpage/langingpage";
 import Createpost from "./container/Createpost/createpost";
+import Langingpage from "./container/Landingpage/langingpage";
 
 function App() {
 
@@ -15,7 +15,7 @@ function App() {
           <Router>
                 <Navbar/>      
         <Routes>
-                
+            
                 <Route path="/" element={<Herosection/>}/>
                 <Route path="/signup" element={<Signup/>}/>
                 <Route path="/login" element={<Login/>}/>

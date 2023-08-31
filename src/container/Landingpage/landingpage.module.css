@@ -10,7 +10,7 @@
   width: 40%;
   height: 174px;
   top: 360px;
-  left: 64px;
+  left: 24px;
   padding: 40px;
   border-radius: 12px;
   border: 1px;
@@ -28,9 +28,8 @@
 }
 .name {
   display: flex;
-  width: 40%;
+  width: 60%;
   justify-content: space-evenly;
-  border: thin solid red;
   align-items: center;
   position: relative;
   top: 20px;
@@ -41,6 +40,21 @@
   letter-spacing: 0em;
   text-align: left;
 }
+.blog{
+  position: relative;
+  top: 30px;
+  width: 90%;
+  margin: auto;
+  /* padding: 90px; */
+  /* border: thin solid red; */
+}
 .blog__h1{
-    
+    margin-bottom: 12px;
+}
+.blog__card{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    /* justify-content: space-around; */
+    justify-content: space-between;
 }

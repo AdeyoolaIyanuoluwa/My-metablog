@@ -28,3 +28,10 @@
     font-size: large;
     border-radius: 50px
 }
+.image_container{
+    width: 50%;
+    margin: auto;
+}
+.image{
+    width: 100%;
+}

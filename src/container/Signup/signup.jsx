@@ -6,7 +6,6 @@ import styles from "./signup.module.css";
 import Input from "../../components/Input/input";
 import Button from "../../components/Button/button";
 import hide from "../../assets/Hide.png";
-// import { faEye} from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { validationSchema } from "./signupSchema";
@@ -41,7 +40,7 @@ const Signup = () => {
         userSignup({
           first_name: value.firstname,
           last_name: value.lastname,
-          email_address: value.email,
+          email_address: value.email.toLowerCase(),
           password: value.password,
         })
       );

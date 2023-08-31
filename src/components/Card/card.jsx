@@ -4,8 +4,10 @@
 import Button from "../Button/button";
 import styles from "./card.module.css";
 import avatar from "../../assets/image.png"
-const Card = ({ title, subtitle, cover }) => {
+import moment from "moment";
+const Card = ({ title, subtitle,content,cover }) => {
     const data = JSON.parse(localStorage.getItem('userInfo'))
+    const date = moment().format('MMMM Do, YYYY')
   return (
     <div>
       <div className={styles.cardcontainer}>
@@ -14,10 +16,11 @@ const Card = ({ title, subtitle, cover }) => {
         </div>
 
         <div className={styles.cardcontainer__title}>
-          <Button children="Technology" mainbutton={true} />
+          <Button children={subtitle}mainbutton={true}/>
           <div>
             <p className={styles.title}>{title}</p>
-            <p>{subtitle}</p>
+            {/* <p>{subtitle}</p> */}
+            <p>{content}</p>
           </div>
         </div>
         <div className={styles.name}>
@@ -27,7 +30,7 @@ const Card = ({ title, subtitle, cover }) => {
             ${data.user.first_name} ${data.user.last_name} 
            `}
            </p>
-           {/* <p>{`${date}`}</p> */}
+           <p>{`${date}`}</p>
            </div>
       </div>
     </div>

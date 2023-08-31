@@ -4,7 +4,9 @@ const instance = axios.create({
     // eslint-disable-next-line no-undef
     baseURL: `${process.env.REACT_APP_BLOG_URL}/api/v1`,
     headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        // eslint-disable-next-line no-dupe-keys
+        'Content-Type': 'multipart/form-data'
     }
 })
 
