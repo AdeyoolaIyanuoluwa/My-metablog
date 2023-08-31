@@ -74,6 +74,7 @@ const Langingpage = () => {
                   authorsName={`
                   ${userInfo.user.first_name} ${userInfo.user.last_name} 
                  `}
+                //  onClick={}
                 />
               ))}
             </div>

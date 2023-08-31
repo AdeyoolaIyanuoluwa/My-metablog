@@ -5,11 +5,11 @@ import Button from "../Button/button";
 import styles from "./card.module.css";
 import avatar from "../../assets/image.png"
 import moment from "moment";
-const Card = ({ title, subtitle,content,cover,authorsName }) => {
+const Card = ({ title, subtitle,content,cover,authorsName,onClick }) => {
     // const data = JSON.parse(localStorage.getItem('userInfo'))
     const date = moment().format('MMMM Do, YYYY')
   return (
-    <div>
+    <div onClick={onClick}>
       <div className={styles.cardcontainer}>
         <div className={styles.imagecontainer}>
           <img className={styles.image} src={cover} alt="blog image" />
