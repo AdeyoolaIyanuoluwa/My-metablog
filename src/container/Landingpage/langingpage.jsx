@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { allpost } from "../../features/post/addpostactions";
 import { getPost } from "../../features/post/addpostslice";
 import Card from "../../components/Card/card";
+import Loader from "../../Loader/loader";
 
 const Langingpage = () => {
   const navigate = useNavigate();
@@ -57,8 +58,8 @@ const Langingpage = () => {
       <div className={styles.blog}>
         <h1 className={styles.blog__h1}>Latest Posts</h1>
 
-        <div className={styles.blog__card}>
-          {all.loading && <div>loading......</div>}
+        <div className={styles.blog__cardcontainer}>
+          {all.loading && <div><Loader/></div>}
           {!all.loading && all.error ? <div>Error: {all.error}</div> : null}
           {/* {console.log(all.posts)} */}
           {!all.loading && all.posts?.data?.data.length ? (
@@ -70,6 +71,9 @@ const Langingpage = () => {
                   title={post.title}
                   subtitle={post.subtitle}
                   content={post.post.substring(0, 155)}
+                  authorsName={`
+                  ${userInfo.user.first_name} ${userInfo.user.last_name} 
+                 `}
                 />
               ))}
             </div>
