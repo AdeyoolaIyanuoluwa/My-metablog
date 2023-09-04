@@ -5,7 +5,7 @@ import LoadingSpinnerComponent from 'react-spinners-components'
 
 const Loader = () => {
   return (
-    <div className={styles.loader}><LoadingSpinnerComponent type={'Spinner'} color='blue' size={'500px'}/></div>
+    <div className={styles.loader}><LoadingSpinnerComponent type={'Spinner'} color='blue' size={'200px'}/></div>
   )
 }
 

@@ -18,10 +18,10 @@ const Navbar = () => {
             <img className="image" src={logo} alt="" />
           </li>
           <div className={styles.navbar__link}>
-            <Link className="nav-link" to="/products">
+            <Link className="nav-link" to="/">
               Home
             </Link>
-            <Link className="nav-link">Blog</Link>
+            <Link className="nav-link" to="/landingpage">Blogs</Link>
             <Link className="nav-link">Single Post</Link>
             <Link className="nav-link">Pages</Link>
             <Link className="nav-link">Contact</Link>

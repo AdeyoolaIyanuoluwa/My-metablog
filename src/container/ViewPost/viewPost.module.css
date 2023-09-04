@@ -1,0 +1,52 @@
+.maincontainer {
+  width: 60%;
+  /* border: thin solid red; */
+  margin: auto;
+}
+.button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.title {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: 0em;
+  text-align: left;
+  width: 800px;
+  height: 80px;
+}
+.name {
+  display: flex;
+  width: 40%;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  top: 5px;
+  color: #696a75;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  /* border: thin solid red; */
+}
+.image {
+  width: 800px;
+  height: 462px;
+  border-radius: 12px;
+  position: relative;
+  top: 5px;
+}
+.post {
+  width: 804px;
+  height: 320px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #3b3c4a;
+  position: relative;
+  top: 30px;
+}

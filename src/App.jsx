@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Createpost from "./container/Createpost/createpost";
 import Langingpage from "./container/Landingpage/langingpage";
+import ViewPost from "./container/ViewPost/viewPost";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/landingpage" element={<Langingpage/>}/>
                 <Route path="/create" element={<Createpost/>}/>
+                <Route path = "/viewpost/:postId" element={<ViewPost/>}/>
           </Routes>
         </Router>
         <ToastContainer/>
