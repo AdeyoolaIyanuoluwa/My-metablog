@@ -29,6 +29,7 @@ export const userLogin = createAsyncThunk(
       //   localStorage.setItem('userInfo',res.data.token)
       // }
       localStorage.setItem('userInfo', JSON.stringify(data?.data));
+      localStorage.setItem('loggedIn', true);
       localStorage.setItem('userToken', data?.data?.token);
       instance.defaults.headers.common['Authorization'] = `Bearer ${data?.data?.token}`; 
       successful(`${data.message}`);

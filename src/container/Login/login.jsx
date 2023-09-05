@@ -1,20 +1,20 @@
 /* eslint-disable react/no-children-prop */
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Input from "../../components/Input/input";
 import styles from "./login.module.css";
-import hide from "../../assets/Hide.png";
 import Button from "../../components/Button/button";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../features/Register/validationactions";
 import { Link, useNavigate } from "react-router-dom";
 import { loginSchema } from "./loginSchema";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [togglePassword, setTogglePassword] = useState(false);
   const { loading, userInfo } = useSelector((state) => state.validation);
- 
+
   useEffect(() => {
     if (userInfo?.data?.token) {
       navigate("/landingpage");
@@ -37,7 +37,10 @@ const Login = () => {
       );
     },
   });
-  
+  const visible = () => {
+    setTogglePassword(togglePassword ? false : true);
+  };
+
   return (
     <div className={styles.signin_container}>
       <div className={styles.signin_container_heading}>
@@ -68,14 +71,22 @@ const Login = () => {
             name="password"
             value={formik.password}
             onchange={formik.handleChange}
-            type="text"
+            type={togglePassword ? "show" : "password"}
             placeholder="*************"
           />
-          <img src={hide} alt="hideicon" className={styles.hideicon} />
+          <div className={styles.hideicon} onClick={visible}>
+            {togglePassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+          </div>
           <p className={styles.error}>{formik.errors.password}</p>
         </div>
 
-        <Button children="Login" mainbutton={false} type= "submit" loading={loading} disabled={!formik.isValid}/>
+        <Button
+          children="Login"
+          mainbutton={false}
+          type="submit"
+          loading={loading}
+          disabled={!formik.isValid}
+        />
       </form>
       <div className={styles.span}>
         <span>

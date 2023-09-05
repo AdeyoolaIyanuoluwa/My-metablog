@@ -54,7 +54,7 @@ const Langingpage = () => {
             <img src={avatar} alt="avatar" />
             <p>
               {`
-            ${userInfo.user.first_name} ${userInfo.user.last_name} 
+            ${userInfo?.user.first_name} ${userInfo?.user.last_name} 
            `}
             </p>
             <p>{`${date}`}</p>
@@ -64,7 +64,14 @@ const Langingpage = () => {
 
       <div className={styles.blog}>
         <div className={styles.blog__posts}>
-          <h1 className={styles.blog__h1} onClick={()=>{dispatch(getLatestPost())}}>Latest Posts</h1>
+          <h1
+            className={styles.blog__h1}
+            onClick={() => {
+              dispatch(getLatestPost());
+            }}
+          >
+            Latest Posts
+          </h1>
           {/* <h1 className={styles.blog__h1} onClick={()=>{dispatch(allpost({ page: page }))}}>All Posts</h1> */}
         </div>
 
@@ -89,14 +96,18 @@ const Langingpage = () => {
                   title={post.title}
                   subtitle={post.subtitle}
                   content={post.post.substring(0, 155) + "....."}
-                    authorsName={`
+                  authorsName={`
                     ${post.first_name} ${post.last_name}
                    `}
-                    datecreated={`${post.to_char?.substring(0, 13)} `}
+                  datecreated={`${post.to_char?.substring(0, 13)} `}
                   onClick={() => {
                     dispatch(readPost(post.id));
                     navigate(`/viewpost/${post.id}`);
                   }}
+                  avat={`
+                  ${post.first_name.substring(0, 1).toUpperCase()}${post.last_name.substring(
+                    0, 1).toUpperCase()}
+                 `}
                 />
               ))}
             </div>

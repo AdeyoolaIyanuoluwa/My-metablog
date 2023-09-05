@@ -9,12 +9,23 @@ import { createpostSchema } from "./createpostSchema";
 import { addpost } from "../../features/post/addpostactions";
 import {  useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+// import { Editor, convertToRaw } from "draft-js";
+// import { EditorState } from "draft-js";
+// import { convertFromRaw } from "draft-js";
 
 const Createpost = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
   const { loading, userInfo } = useSelector((state) => state.posts);
   const [image, setimage] = useState({ preview: "",raw: "" });
+  // const [editorState, setEditorState] = useState(() =>{
+  //   if (localStorage.getItem('editor-state')) {
+  //     return EditorState.createWithContent(
+  //       convertFromRaw(JSON.parse(localStorage.getItem('editor-state')))
+  //     );
+  //   }
+  //   return EditorState.createEmpty();
+  // })
 
 
   useEffect(() => {
@@ -39,6 +50,14 @@ const Createpost = () => {
       );
     }
   };
+
+  // const onEditorStateChange = (value) => {
+  //   setEditorState(value);
+  //   localStorage.setItem(
+  //     'editor-state',
+  //     JSON.stringify(convertToRaw(editorState.getCurrentContent()))
+  //   );
+  // };
   const initialValues = {
     title: "",
     subtitle: "",
@@ -55,6 +74,7 @@ const Createpost = () => {
           subtitle: value.subtitle,
           cover: image.raw,
           post: value.post,
+          // post: JSON.stringify(convertToRaw(editorState.getCurrentContent()))
         })
       );
     },
@@ -79,6 +99,7 @@ const Createpost = () => {
             onchange={formik.handleChange}
             name="subtitle"
           />
+          {/* <Editor editorState={editorState} onEditorStateChange={onEditorStateChange}/> */}
           <textarea
             className={styles.input_box__textarea}
             placeholder="ADD POST"

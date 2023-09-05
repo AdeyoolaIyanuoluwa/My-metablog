@@ -10,23 +10,37 @@ export const createpostSchema = Yup.object({
     .min(2, "Subtitle is too short")
     .max(20, "Subtitle is too long"),
 
-  cover: Yup.mixed().test(
-    "is-file-of-correct-type",
-    "File is not of supported type",
-    () => {
-      let valid = true;
-      const files = fileRef?.current?.files;
-      if (files) {
-        const fileArr = Array.from(files);
-        fileArr.forEach((file) => {
-          const type = file.type.split("/")[1];
-          const validTypes = [png, jpeg, svg];
-          if (!validTypes.includes(type)) {
-            valid = false;
-          }
-        });
-      }
-      return valid;
+  cover: Yup.mixed().test("is-file-too-big", "File exceeds 5MB", () => {
+    let valid = true;
+    const files = fileRef?.current?.files;
+    if (files) {
+      const fileArr = Array.from(files);
+      fileArr.forEach((file) => {
+        const size = file.size / 1024 / 1024;
+        if (size > 10) {
+          valid = false;
+        }
+      })
     }
-  ),
+    return valid
+  })
+    .test(
+      "is-file-of-correct-type",
+      "File is not of supported type",
+      () => {
+        let valid = true;
+        const files = fileRef?.current?.files;
+        if (files) {
+          const fileArr = Array.from(files);
+          fileArr.forEach((file) => {
+            const type = file.type.split("/")[1];
+            const validTypes = [png, jpeg, svg];
+            if (!validTypes.includes(type)) {
+              valid = false;
+            }
+          });
+        }
+        return valid;
+      }
+    ),
 });

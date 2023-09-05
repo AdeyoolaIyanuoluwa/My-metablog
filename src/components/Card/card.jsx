@@ -25,9 +25,10 @@ const Card = ({ title, subtitle, content, cover, onClick , authorsName,datecreat
           </div>
         </div>
         <div className={styles.name}>
+          {/* <div className={styles.avatar}><span>{avat}</span></div> */}
         <img src={avatar} alt="avatar" />
-          <p>{authorsName}</p>
-          <p>{datecreated}</p>
+          <div>{authorsName}</div>
+          <div>{datecreated}</div>
         </div>
       </div>
     </div>
