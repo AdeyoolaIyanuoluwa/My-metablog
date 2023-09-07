@@ -33,13 +33,12 @@ export const addpost = createAsyncThunk(
 //     .then((response) => response.data)
 // })
 
-export const allpost = createAsyncThunk("post/allpost", async ({ params }) => {
+export const allpost = createAsyncThunk("post/allpost", async ( params ) => {
+  console.log(params)
   try {
     const data = await instance.get(`blogs/all_posts?${queryFormatter(params)}`)
-    // successful(`${data.message}`);
     return data
   } catch (error) {
-    // failed(`${error.response?.data?.message}`);
     return (error.response.data)
   }
 

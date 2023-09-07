@@ -9,19 +9,18 @@ import Button from "../Button/button";
 const Navbar = () => {
   const navigate = useNavigate();
   const loggedIn = localStorage.getItem("loggedIn");
-  // const token = localStorage.getItem("userToken")
- 
 
   const signin = () => {
     navigate("/login");
+  };
+  const logout = () => {
+    localStorage.clear();
+    navigate("/login");
     // location.reload()
   };
-  const logout =()=>{
-        localStorage.clear()
-        // delete instance.defaults.headers.common['Authorization']
-        navigate("/login")
-        location.reload()
-  }
+  const createpost = () => {
+    navigate("/create");
+  };
   return (
     <div>
       <nav>
@@ -36,12 +35,21 @@ const Navbar = () => {
             <Link className="nav-link" to="/landingpage">
               Blogs
             </Link>
-            <Link className="nav-link">Single Post</Link>
-            <Link className="nav-link">Pages</Link>
-            <Link className="nav-link">Contact</Link>
+            <Link className="nav-link" to="/landingpage">
+              Single Post
+            </Link>
+            <Link className="nav-link" to="/landingpage">
+              Pages
+            </Link>
+            {/* <Link className="nav-link" to="/landingpage">
+              Contact
+            </Link> */}
           </div>
-          {loggedIn ? ( 
-            <Button children="LOG OUT" mainbutton={true} onclick={logout}/>
+          {loggedIn ? (
+            <>
+              <button className={styles.createpostbtn} onClick={createpost}>CREATE POST</button>
+              <Button children="LOG OUT" mainbutton={true} onclick={logout} />
+            </>
           ) : (
             <div className={styles.navbar__button}>
               <Button children="SIGN IN" onclick={signin} mainbutton={true} />

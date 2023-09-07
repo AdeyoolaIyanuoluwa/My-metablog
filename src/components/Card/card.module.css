@@ -41,29 +41,42 @@
 }
 .name {
   display: flex;
-  width: 90%;
-  justify-content: space-evenly;
-  /* border: thin solid red; */
-  align-items: center;
-  position: relative;
-  /* top: 4px; */
+  width: 85%;
+  justify-content: space-between;
+  align-items: left;
+  text-align: left;
   color: rgb(66, 63, 63);
   font-size: 16px;
   font-weight: 500;
-  /* line-height: 24px; */
   letter-spacing: 0em;
-  text-align: left;
+  text-align: center ;
+  /* border: thin solid red; */
+}
+.avatarcontainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
 }
 .avatar {
-  border: thin solid red;
-  /* display: flex; */
+  display: flex;
   justify-content: center;
   margin: auto;
   width: 40px;
   height: 40px;
   border-radius: 100%;
+  background: white;
 }
 .avatar span {
   position: relative;
-  top: 10px;
+  top: 9px;
+  left: 1px;
+  height: 18px;
+  /* margin: auto; */
+  /* border: thin solid blue ; */
+  border-radius: 100%;
+}
+.auth1{
+  display: flex;
+  align-items: center;
 }

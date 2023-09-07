@@ -29,6 +29,21 @@ a:-webkit-any-link {
     text-decoration: none;
     color: black;
   }
+  .createpostbtn{
+    width: 150px;
+    padding: 10px 10px 10px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    gap: 4px;
+    border: none;
+    color: white;
+    background-color: #4B6BFB;
+  }
+ /* button :hover{
+    background-color: white;
+    color: blue;
+  } */
 .navbar__button{
     width: 20%;
 }

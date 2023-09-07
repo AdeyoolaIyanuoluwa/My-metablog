@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/button";
 import styles from "./landingpage.module.css";
 import avatar from "../../assets/image.png";
-// import Card from "../../components/Card/card";
 import moment from "moment/moment";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -16,20 +15,27 @@ import {
 import { getPost } from "../../features/post/addpostslice";
 import Card from "../../components/Card/card";
 import Loader from "../../Loader/loader";
+import ReactPaginate from "react-paginate";
+import useSecondRunEffect from "../../hooks/useSecondrun";
 
 const Langingpage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [page, setpage] = useState(1);
+  const [page, setPage] = useState(1);
   const date = moment().format("MMMM Do, YYYY");
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const all = useSelector(getPost);
-  console.log(all);
-  const data = all.posts?.data?.data;
 
-  const createpost = () => {
-    navigate("/create");
+  const queries = {
+    page,
+    perPage: 2,
   };
+  // console.log(all);
+  const data = all.posts?.data?.data;
+  const [search, setSearch] = useState("");
+  const [authorsName, setAuthorsName] = useState(true);
+  const [paginate, setPaginate] = useState(true);
+
   // useEffect(() => {
   //   dispatch(allpost({ page: page }));
   // }, [dispatch, page]);
@@ -37,15 +43,19 @@ const Langingpage = () => {
     dispatch(getLatestPost());
   }, [dispatch]);
 
+  const handlePageClick = ({ selected }) => {
+    setPage(selected + 1);
+  };
+  useSecondRunEffect(() => {
+    console.log("here");
+    dispatch(allpost(queries));
+  }, [page]);
+
   return (
     <div>
       <div className={styles.background}>
         <div className={styles.background__card}>
-          <Button
-            children="CREATE POST"
-            mainbutton={false}
-            onclick={createpost}
-          />
+          <Button children="Technology" mainbutton={true} />
           <p className={styles.background__title}>
             The Impact of Technology on the Workplace: How Technology is
             Changing
@@ -68,12 +78,31 @@ const Langingpage = () => {
             className={styles.blog__h1}
             onClick={() => {
               dispatch(getLatestPost());
+              setAuthorsName(true);
+              setPaginate(false);
             }}
           >
             Latest Posts
           </h1>
-          {/* <h1 className={styles.blog__h1} onClick={()=>{dispatch(allpost({ page: page }))}}>All Posts</h1> */}
+          <h1
+            className={styles.blog__h1}
+            onClick={() => {
+              dispatch(allpost({ ...queries, page: 1 }));
+              setAuthorsName(false);
+              setPaginate(true);
+            }}
+          >
+            All Posts
+          </h1>
         </div>
+        <form>
+          <input
+            type="text"
+            placeholder="search post...."
+            className={styles.blog__searchinput}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </form>
 
         <div className={styles.blog__cardcontainer}>
           {all.loading && (
@@ -89,30 +118,54 @@ const Langingpage = () => {
           )}
           {!all.loading && data && data?.length ? (
             <div className={styles.blog__card}>
-              {data.map((post) => (
-                <Card
-                  key={post.id}
-                  cover={post.cover}
-                  title={post.title}
-                  subtitle={post.subtitle}
-                  content={post.post.substring(0, 155) + "....."}
-                  authorsName={`
+              {data
+                .filter((post) => {
+                  return search === ""
+                    ? post
+                    : post.title.toLowerCase().includes(search);
+                })
+                .map((post) => (
+                  <Card
+                    key={post.id}
+                    cover={post.cover}
+                    title={post.title}
+                    subtitle={post.subtitle}
+                    content={post.post.substring(0, 155) + "....."}
+                    authorsName={
+                      authorsName
+                        ? `
                     ${post.first_name} ${post.last_name}
-                   `}
-                  datecreated={`${post.to_char?.substring(0, 13)} `}
-                  onClick={() => {
-                    dispatch(readPost(post.id));
-                    navigate(`/viewpost/${post.id}`);
-                  }}
-                  avat={`
-                  ${post.first_name.substring(0, 1).toUpperCase()}${post.last_name.substring(
-                    0, 1).toUpperCase()}
-                 `}
-                />
-              ))}
+                   `
+                        : ""
+                    }
+                    datecreated={
+                      authorsName ? `${post.to_char?.substring(0, 13)} ` : ""
+                    }
+                    onClick={() => {
+                      dispatch(readPost(post.id));
+                      navigate(`/viewpost/${post.id}`);
+                    }}
+                    avat={
+                      authorsName
+                        ? `
+                            ${post.first_name
+                              ?.substring(0, 1)
+                              .toUpperCase()}${post.last_name
+                            ?.substring(0, 1)
+                            .toUpperCase()}
+                 `
+                        : ""
+                    }
+                  />
+                ))}
             </div>
           ) : null}
         </div>
+        {paginate ? (
+          <ReactPaginate pageCount={10} onPageChange={handlePageClick} />
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

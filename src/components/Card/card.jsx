@@ -4,9 +4,17 @@
 import React, { useEffect } from "react";
 import Button from "../Button/button";
 import styles from "./card.module.css";
-import avatar from "../../assets/image.png";
-const Card = ({ title, subtitle, content, cover, onClick , authorsName,datecreated}) => {
-
+// import avatar from "../../assets/image.png";
+const Card = ({
+  title,
+  subtitle,
+  content,
+  cover,
+  onClick,
+  authorsName,
+  datecreated,
+  avat,
+}) => {
   return (
     <div onClick={onClick}>
       <div className={styles.cardcontainer}>
@@ -24,11 +32,13 @@ const Card = ({ title, subtitle, content, cover, onClick , authorsName,datecreat
             <p>{content}</p>
           </div>
         </div>
+
         <div className={styles.name}>
-          {/* <div className={styles.avatar}><span>{avat}</span></div> */}
-        <img src={avatar} alt="avatar" />
-          <div>{authorsName}</div>
-          <div>{datecreated}</div>
+          <div className={styles.avatarcontainer}>
+            <div className={styles.avatar}><span>{avat}</span></div>
+            <div className={styles.auth}>{authorsName}</div>
+          </div>
+          <div className={styles.auth1}>{datecreated}</div>
         </div>
       </div>
     </div>
