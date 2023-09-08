@@ -6,6 +6,8 @@
 .button {
   margin-top: 20px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 .title {
   font-size: 36px;
@@ -15,6 +17,21 @@
   text-align: left;
   width: 800px;
   height: 80px;
+}
+.namecontainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  top: 5px;
+  color: #696a75;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  /* border: thin solid red; */
 }
 .name {
   display: flex;

@@ -28,7 +28,7 @@ const Langingpage = () => {
 
   const queries = {
     page,
-    perPage: 10,
+    perPage: 3,
   };
   // console.log(all);
   const data = all.posts?.data?.data;
@@ -84,16 +84,7 @@ const Langingpage = () => {
           >
             Latest Posts
           </h1>
-          <h1
-            className={styles.blog__h1}
-            onClick={() => {
-              dispatch(allpost({ ...queries, page: 1 }));
-              setAuthorsName(false);
-              setPaginate(true);
-            }}
-          >
-            All Posts
-          </h1>
+          
         </div>
         <form>
           <input
@@ -172,6 +163,16 @@ const Langingpage = () => {
               )}
             </div>
           ) : null}
+          <h1
+            className={styles.blog__h1}
+            onClick={() => {
+              dispatch(allpost({ ...queries, page: 1 }));
+              setAuthorsName(false);
+              setPaginate(true);
+            }}
+          >
+            All Posts
+          </h1>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { addpost, allpost, getLatestPost, readPost } from "./addpostactions"
+import { addpost, allpost, deletePost, getLatestPost, readPost } from "./addpostactions"
 
 
 const initialState = {
@@ -21,7 +21,7 @@ const addpostslice = createSlice({
       builder.addCase(addpost.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.posts = payload;
-        state.success = true;
+        state.success = true;3
       }),
       builder.addCase(addpost.rejected, (state, { payload }) => {
         state.loading = false;
@@ -75,6 +75,22 @@ const addpostslice = createSlice({
       state.loading = false;
       state.error = payload;
     });
+
+
+    //deletepost
+    builder.addCase(deletePost.pending, (state)=>{
+      state.loading= true;
+      state.error = null
+    })
+    builder.addCase(deletePost.fulfilled, (state, {payload})=>{
+      state.loading= true;
+      state.posts = payload
+      state.success = true
+    })
+    builder.addCase(deletePost.rejected, (state, {payload})=>{
+      state.loading= false;
+      state.error = payload
+    })
   }
 });
 

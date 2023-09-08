@@ -33,7 +33,7 @@ export const addpost = createAsyncThunk(
 //     .then((response) => response.data)
 // })
 
-export const allpost = createAsyncThunk("post/allpost", async ( params ) => {
+export const allpost = createAsyncThunk("post/allpost", async (params) => {
   console.log(params)
   try {
     const data = await instance.get(`blogs/all_posts?${queryFormatter(params)}`)
@@ -56,6 +56,18 @@ export const getLatestPost = createAsyncThunk("post/latestPost", async () => {
 export const readPost = createAsyncThunk('post/viewPost', async ({ postId }) => {
   try {
     const data = await instance.get(`blogs/view_post/${postId}`);
+    return data
+  } catch (error) {
+    failed(`${error.response?.data?.message}`);
+    return (error.response.data)
+  }
+})
+
+export const deletePost = createAsyncThunk('post/deletePost', async (
+  [postId]
+) => {
+  try {
+    const data = await instance.delete(`blogs/delete_post/${postId}`);
     return data
   } catch (error) {
     failed(`${error.response?.data?.message}`);

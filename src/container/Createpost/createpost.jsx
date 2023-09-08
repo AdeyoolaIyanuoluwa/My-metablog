@@ -29,7 +29,7 @@ const Createpost = () => {
 
 
   useEffect(() => {
-    if(userInfo?.status === "successful"){
+    if(userInfo?.status === "Successful"){
         navigate("/landingpage")
     }
   }, [navigate, userInfo?.status])

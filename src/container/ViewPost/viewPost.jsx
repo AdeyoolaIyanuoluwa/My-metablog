@@ -12,21 +12,22 @@ import { useParams } from "react-router-dom";
 import { getPost } from "../../features/post/addpostslice";
 import Loader from "../../Loader/loader";
 
-const PostComponent = ({ subtitle, title, authorsName, date, cover, post }) => {
+const PostComponent = ({ subtitle, title, authorsName, date, cover, post,text }) => {
   return (
     <div>
       <div className={styles.button}>
         <Button children={subtitle} mainbutton={true} />
-        {/* <Button children={subtitle} mainbutton={true} /> */}
-
       </div>
       <div className={styles.title}>
         <p>{title}</p>
       </div>
-      <div className={styles.name}>
-        <img src={avatar} alt="avatar" />
-        <p>{authorsName}</p>
-        <p>{date}</p>
+      <div className={styles.namecontainer}>
+        <div className={styles.name}>
+          <img src={avatar} alt="avatar" />
+          <p>{authorsName}</p>
+          <p>{date}</p>
+        </div>
+        {/* <Button children={text} mainbutton={true} onclick={deletePost}/> */}
       </div>
 
       <div className={styles.image}>
@@ -70,6 +71,7 @@ const ViewPost = () => {
             authorsName={`${post.first_name} ${post.last_name}`}
             post={post.post}
             date={post.to_char}
+            text={'Delete Post'}
           />
         </>
       ))}
