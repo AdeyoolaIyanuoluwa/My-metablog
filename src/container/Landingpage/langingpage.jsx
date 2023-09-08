@@ -28,13 +28,13 @@ const Langingpage = () => {
 
   const queries = {
     page,
-    perPage: 2,
+    perPage: 10,
   };
   // console.log(all);
   const data = all.posts?.data?.data;
   const [search, setSearch] = useState("");
   const [authorsName, setAuthorsName] = useState(true);
-  const [paginate, setPaginate] = useState(true);
+  const [paginate, setPaginate] = useState(false);
 
   // useEffect(() => {
   //   dispatch(allpost({ page: page }));
@@ -158,14 +158,21 @@ const Langingpage = () => {
                     }
                   />
                 ))}
+              {paginate ? (
+                <div className={styles.paginate}>
+                  <ReactPaginate
+                    pageCount={10}
+                    onPageChange={handlePageClick}
+                    className={styles.paginate}
+                    pageClassName={styles.pageClassName}
+                  />
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           ) : null}
         </div>
-        {paginate ? (
-          <ReactPaginate pageCount={10} onPageChange={handlePageClick} />
-        ) : (
-          ""
-        )}
       </div>
     </div>
   );

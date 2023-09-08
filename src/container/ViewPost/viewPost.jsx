@@ -17,7 +17,7 @@ const PostComponent = ({ subtitle, title, authorsName, date, cover, post }) => {
     <div>
       <div className={styles.button}>
         <Button children={subtitle} mainbutton={true} />
-        <Button children={subtitle} mainbutton={true} />
+        {/* <Button children={subtitle} mainbutton={true} /> */}
 
       </div>
       <div className={styles.title}>

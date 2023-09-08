@@ -97,3 +97,22 @@
     transform: translateX(0);
   }
 }
+
+.paginate{
+  display: flex;
+  width: 100%;
+  border: thin solid red;
+  justify-content: space-around;
+  list-style-type: none;
+  float: left;
+  /* margin: auto; */
+  /* text-align: left; */
+  padding: 10px;
+  /* margin: 10px; */
+}
+.pageClassName{
+  border: thin solid red;
+  width: 30px;
+  display: flex;
+  align-items: center;
+}

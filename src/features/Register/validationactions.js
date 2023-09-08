@@ -22,19 +22,19 @@ export const userSignup = createAsyncThunk(
 );
 export const userLogin = createAsyncThunk(
   "validation/login",
-  async ({email_address,password}, {rejectWithValue})=>{
-    try{
-      const {data} = await instance.post("users/login", {email_address,password});
+  async ({ email_address, password }, { rejectWithValue }) => {
+    try {
+      const { data } = await instance.post("users/login", { email_address, password });
       // if(res.data.token){
       //   localStorage.setItem('userInfo',res.data.token)
       // }
       localStorage.setItem('userInfo', JSON.stringify(data?.data));
       localStorage.setItem('loggedIn', true);
       localStorage.setItem('userToken', data?.data?.token);
-      instance.defaults.headers.common['Authorization'] = `Bearer ${data?.data?.token}`; 
+      instance.defaults.headers.common['Authorization'] = `Bearer ${data?.data?.token}`;
       successful(`${data.message}`);
       return data
-    } catch (error){
+    } catch (error) {
       failed(error.response?.data?.message);
       return rejectWithValue(error.response.data)
     }

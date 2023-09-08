@@ -65,7 +65,7 @@
   width: 40px;
   height: 40px;
   border-radius: 100%;
-  background: white;
+  /* background: white; */
 }
 .avatar span {
   position: relative;
