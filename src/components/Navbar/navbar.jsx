@@ -51,9 +51,10 @@ const Navbar = () => {
               <Button children="LOG OUT" mainbutton={true} onclick={logout} />
             </>
           ) : (
-            <div className={styles.navbar__button}>
+            <>
               <Button children="SIGN IN" onclick={signin} mainbutton={true} />
-            </div>
+              <button className={styles.createpostbtn} onClick={createpost}>CREATE POST</button>
+            </>
           )}
         </ul>
       </nav>

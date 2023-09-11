@@ -1,8 +1,13 @@
 .background {
-  background-image: url("../../assets/background.png");
+  /* background-image: url("../../assets/background.png");
   height: 77.7vh;
-  background-size: cover;
+  background-size: cover; */
   /* margin-left: 100px; */
+  /* background-repeat: no-repeat;
+  background-position: center; */
+  background-image: url("../../assets/background.png");
+  height: 87.7vh;
+  background-size: 85%;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -10,13 +15,13 @@
   width: 40%;
   height: 174px;
   top: 360px;
-  left: 24px;
+  left: 104px;
   padding: 40px;
   border-radius: 12px;
   border: 1px;
   gap: 24px;
   position: relative;
-  top: 217px;
+  top: 317px;
   color: white;
 }
 .background__title {
@@ -43,34 +48,30 @@
 .blog {
   position: relative;
   top: 30px;
-  width: 90%;
+  width: 85%;
   margin: auto;
-  /* padding: 90px; */
-  /* border: thin solid red; */
 }
-.blog__posts{
+.blog__posts {
   display: flex;
-  /* border: thin  solid red; */
   width: 30%;
   justify-content: space-between;
 }
 .blog__h1 {
   margin-bottom: 12px;
 }
-.blog__searchinput{
-    background: white;
-    border: none;
-    border-radius: 50px;
-    color: #757575;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    height: 100%;
-    line-height: 24px;
-    padding: 17px 60px;
-    width: 60%;
-    margin-bottom: 20px;
-    
+.blog__searchinput {
+  background: white;
+  border: none;
+  border-radius: 50px;
+  color: #757575;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  height: 100%;
+  line-height: 24px;
+  padding: 17px 25px;
+  width: 30%;
+  margin-bottom: 20px;
 }
 .blog__card {
   display: grid;
@@ -98,21 +99,19 @@
   }
 }
 
-.paginate{
+.paginate {
   display: flex;
-  width: 100%;
-  border: thin solid red;
+  width: 30%;
+  border: thin solid rgb(171, 171, 173);
   justify-content: space-around;
   list-style-type: none;
-  float: left;
-  /* margin: auto; */
-  /* text-align: left; */
   padding: 10px;
-  /* margin: 10px; */
+  margin: 20px;
 }
-.pageClassName{
-  border: thin solid red;
-  width: 30px;
+.pageClassName {
+  border: thin solid rgb(114, 107, 107);
+  width: 50%;
   display: flex;
   align-items: center;
+  padding-left: 15px;
 }

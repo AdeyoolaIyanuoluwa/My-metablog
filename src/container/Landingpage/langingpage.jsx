@@ -21,35 +21,38 @@ import useSecondRunEffect from "../../hooks/useSecondrun";
 const Langingpage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [page, setPage] = useState(1);
   const date = moment().format("MMMM Do, YYYY");
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const all = useSelector(getPost);
+  const data = all.posts?.data?.data;
+  const [search, setSearch] = useState("");
+  const [authorsName, setAuthorsName] = useState(true);
+  const [paginate, setPaginate] = useState(false);
+  const [page, setPage] = useState(1);
 
   const queries = {
     page,
     perPage: 3,
   };
-  // console.log(all);
-  const data = all.posts?.data?.data;
-  const [search, setSearch] = useState("");
-  const [authorsName, setAuthorsName] = useState(true);
-  const [paginate, setPaginate] = useState(false);
 
   // useEffect(() => {
   //   dispatch(allpost({ page: page }));
   // }, [dispatch, page]);
-  useEffect(() => {
-    dispatch(getLatestPost());
-  }, [dispatch]);
+
+  // useEffect(() => {
+  //   dispatch(getLatestPost());
+  // }, [dispatch]);
 
   const handlePageClick = ({ selected }) => {
     setPage(selected + 1);
   };
   useSecondRunEffect(() => {
-    console.log("here");
     dispatch(allpost(queries));
   }, [page]);
+  const totalPages = all?.posts?.data?.pageOptions?.totalPages;
+  console.log(totalPages);
+  const pageCount = Math.ceil(totalPages / 3)
+
 
   return (
     <div>
@@ -74,7 +77,7 @@ const Langingpage = () => {
 
       <div className={styles.blog}>
         <div className={styles.blog__posts}>
-          <h1
+          {/* <h1
             className={styles.blog__h1}
             onClick={() => {
               dispatch(getLatestPost());
@@ -83,8 +86,17 @@ const Langingpage = () => {
             }}
           >
             Latest Posts
+          </h1> */}
+          <h1
+            className={styles.blog__h1}
+            onClick={() => {
+              dispatch(allpost({ ...queries, page: 1 }));
+              setAuthorsName(false);
+              setPaginate(true);
+            }}
+          >
+            All Posts
           </h1>
-          
         </div>
         <form>
           <input
@@ -122,57 +134,56 @@ const Langingpage = () => {
                     title={post.title}
                     subtitle={post.subtitle}
                     content={post.post.substring(0, 155) + "....."}
-                    authorsName={
-                      authorsName
-                        ? `
-                    ${post.first_name} ${post.last_name}
-                   `
-                        : ""
-                    }
-                    datecreated={
-                      authorsName ? `${post.to_char?.substring(0, 13)} ` : ""
-                    }
+                    //   authorsName={
+                    //     authorsName
+                    //       ? `
+                    //   ${post.first_name} ${post.last_name}
+                    //  `
+                    //       : ""
+                    //   }
+                    //   datecreated={
+                    //     authorsName ? `${post.to_char?.substring(0, 13)} ` : ""
+                    //   }
                     onClick={() => {
                       dispatch(readPost(post.id));
                       navigate(`/viewpost/${post.id}`);
                     }}
-                    avat={
-                      authorsName
-                        ? `
-                            ${post.first_name
-                              ?.substring(0, 1)
-                              .toUpperCase()}${post.last_name
-                            ?.substring(0, 1)
-                            .toUpperCase()}
-                 `
-                        : ""
-                    }
+                    //     avat={
+                    //       authorsName
+                    //         ? `
+                    //             ${post.first_name
+                    //               ?.substring(0, 1)
+                    //               .toUpperCase()}${post.last_name
+                    //             ?.substring(0, 1)
+                    //             .toUpperCase()}
+                    //  `
+                    //         : ""
+                    //     }
                   />
                 ))}
-              {paginate ? (
-                <div className={styles.paginate}>
-                  <ReactPaginate
-                    pageCount={10}
-                    onPageChange={handlePageClick}
-                    className={styles.paginate}
-                    pageClassName={styles.pageClassName}
-                  />
-                </div>
-              ) : (
-                ""
-              )}
             </div>
           ) : null}
-          <h1
-            className={styles.blog__h1}
-            onClick={() => {
-              dispatch(allpost({ ...queries, page: 1 }));
-              setAuthorsName(false);
-              setPaginate(true);
-            }}
-          >
-            All Posts
-          </h1>
+          {/* {paginate ? (
+            <div className={styles.paginat}>
+              <ReactPaginate
+                pageCount={pageCount}
+                onPageChange={handlePageClick}
+                className={styles.paginate}
+                pageClassName={styles.pageClassName}
+              />
+            </div>
+          ) : (
+            ""
+          )} */}
+
+          <div className={styles.paginat}>
+            <ReactPaginate
+              pageCount={pageCount}
+              onPageChange={handlePageClick}
+              className={styles.paginate}
+              pageClassName={styles.pageClassName}
+            />
+          </div>
         </div>
       </div>
     </div>

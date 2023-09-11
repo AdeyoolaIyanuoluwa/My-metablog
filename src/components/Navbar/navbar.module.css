@@ -8,9 +8,10 @@
     justify-content: space-around;
     align-items: center;
     outline: none;
-    width: 100%;
+    width: 89%;
     height: 80px;
-    box-shadow: 1px 1px 5px 1px rgb(196, 196, 196) ;  
+    /* box-shadow: 1px 1px 5px 1px rgb(196, 196, 196) ;   */
+    margin: auto;
 }
 .navbar__logo{
     width: 20%;
@@ -46,4 +47,5 @@ a:-webkit-any-link {
   } */
 .navbar__button{
     width: 20%;
+    /* display: flex; */
 }
