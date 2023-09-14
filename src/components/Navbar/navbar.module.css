@@ -86,8 +86,8 @@ a:-webkit-any-link {
 }
 .navbar__link{
   display: block; 
-  background: red;
-  position: fixed;
+  background: #e4e7e9;
+  position: absolute;
   width: 80%;
   height: calc(100vh - 80px);
   text-align: center;
@@ -105,7 +105,9 @@ a{
 .nav_link{
   display: block;
   margin: 50px 0;
-  border: thin solid blue;
   line-height: 30px;
+}
+.createpostbtn{
+    margin-bottom: 5%;
 }
 }

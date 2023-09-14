@@ -118,11 +118,10 @@
   background-color: rgb(184, 176, 176);
   cursor: pointer;
 }
-.pageClassName :active{
+.pageClassName :active {
   background-color: red;
-
 }
-@media(min-width: 200px) and (max-width: 900px){
+@media (min-width: 200px) and (max-width: 900px) {
   .background {
     background-position: top;
     height: 23vh;
@@ -134,30 +133,35 @@
     left: 31px;
     padding: 6px;
   }
-  .background__title{
-    font-size: 12px;  
+  .background__title {
+    font-size: 12px;
     line-height: 25px;
-}
-.background__card button{
-  display: none;
-}
-.name {
-  width: 100%;
-  top: 0;
-  font-size: 12px;
-  line-height: 20px;
-}
-.blog__h1 {
-margin-bottom: 12px;
-  font-size: 20px;
-}
-.blog__searchinput {
-  background: white;
-  height: 50%;
-  width: 80%;
-}
-.blog__card {
-  display: block;
-}
-
+  }
+  .background__card button {
+    display: none;
+  }
+  .name {
+    width: 100%;
+    top: 0;
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .blog__h1 {
+    margin-bottom: 12px;
+    font-size: 20px;
+  }
+  .blog__searchinput {
+    background: white;
+    height: 50%;
+    width: 80%;
+  }
+  .blog__card {
+    display: block;
+  }
+  .paginate {
+    width: 90%;
+  }
+  .pageClassName {
+    width: 20px;
+  }
 }

@@ -1,6 +1,5 @@
 .maincontainer {
   width: 60%;
-  /* border: thin solid red; */
   margin: auto;
 }
 .button {
@@ -46,7 +45,6 @@
   line-height: 24px;
   letter-spacing: 0em;
   text-align: left;
-  /* border: thin solid red; */
 }
 .image {
   width: 800px;
@@ -67,4 +65,25 @@
   color: #3b3c4a;
   position: relative;
   top: 30px;
+}
+@media(min-width: 200px) and (max-width: 900px){
+  .maincontainer {
+    width: 85%;
+  }
+  .title {
+    font-size: 20px;
+    line-height: 24px;
+    width: 100%; 
+  }
+  .name {
+    width: 70%;
+    top: 0px;
+  }
+  .image {
+    width: 100%;
+    height: 100%;
+  }
+  .post {
+    width: 100%;
+  }
 }

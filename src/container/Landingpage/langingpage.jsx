@@ -51,14 +51,17 @@ const Langingpage = () => {
   }, [page]);
   const totalPages = all?.posts?.data?.pageOptions?.totalPages;
   console.log(totalPages);
-  const pageCount = Math.ceil(totalPages / 3)
-
+  const pageCount = Math.ceil(totalPages / 3);
 
   return (
     <div>
       <div className={styles.background}>
         <div className={styles.background__card}>
-          <Button children="Technology" mainbutton={true} className={styles.landingpage_btn}/>
+          <Button
+            children="Technology"
+            mainbutton={true}
+            className={styles.landingpage_btn}
+          />
           <p className={styles.background__title}>
             The Impact of Technology on the Workplace: How Technology is
             Changing
