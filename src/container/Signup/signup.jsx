@@ -1,23 +1,24 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-children-prop */
-// import React from 'react'
+import React, {useState} from 'react'
 import styles from "./signup.module.css";
 import Input from "../../components/Input/input";
 import Button from "../../components/Button/button";
-import hide from "../../assets/Hide.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { validationSchema } from "./signupSchema";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { userSignup } from "../../features/Register/validationactions";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 
 const Signup = () => {
   const { loading, userInfo } = useSelector((state) => state.validation);
   console.log(loading);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [togglePassword, setTogglePassword] = useState(false);
   const initialValues = {
     firstname: "",
     lastname: "",
@@ -46,6 +47,9 @@ const Signup = () => {
       );
     },
   });
+  const visible = () => {
+    setTogglePassword(togglePassword ? false : true);
+  };
   return (
     <div className={styles.signup_container}>
       <div className={styles.signup_container_heading}>
@@ -111,7 +115,9 @@ const Signup = () => {
             type="text"
             placeholder="*************"
           />
-          <img src={hide} alt="hideicon" className={styles.hideicon} />
+            <div className={styles.hideicon} onClick={visible}>
+            {togglePassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+          </div>
           <p className={styles.error}>{formik.errors.password}</p>
         </div>
 

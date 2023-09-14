@@ -1,10 +1,12 @@
 .signup_container {
   width: 410px;
-  height: 545px;
+  height: 508px;
   position: relative;
   top: 61px;
   gap: 32px;
   margin: auto;
+  border: thin solid red;
+  overflow: hidden;
 }
 .signup_container_heading_h1 {
   font-size: 24px;
@@ -42,6 +44,7 @@
   position: relative;
   left: 360px;
   bottom: 45px;
+  font-size: 20px;
 }
 .span {
   text-align: center;

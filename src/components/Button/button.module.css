@@ -38,7 +38,7 @@
   @media(min-width: 200px) and (max-width: 900px){
     .subbutton{
       border: none;
-      width: 320px;
+      width: 350px;
       height: 56px;
       padding: 12px 80px 12px 80px;
       border-radius: 10px;
