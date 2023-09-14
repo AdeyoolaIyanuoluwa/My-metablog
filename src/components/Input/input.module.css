@@ -41,3 +41,12 @@
 .inputs:valid{
     border: 2px solid green;
 }
+
+
+@media(min-width: 200px) and (max-width: 900px){
+    .secondinput{
+        width: 85%;
+        font-size: 15px;
+        font-weight: 600;    
+    }
+}

@@ -8,10 +8,11 @@
     justify-content: space-around;
     align-items: center;
     outline: none;
-    width: 89%;
+    width: 85%;
     height: 80px;
     /* box-shadow: 1px 1px 5px 1px rgb(196, 196, 196) ;   */
     margin: auto;
+    /* border: thin solid red; */
 }
 .navbar__logo{
     width: 20%;
@@ -19,11 +20,13 @@
 }
 .navbar__link{
     display: flex;
-    width: 40%;
+    width: 70%;
     justify-content: space-between;
     font-weight: 400;
     font-size: 16px;
-    list-style-type: none;  
+    list-style-type: none;
+    margin-left: 130px;
+    /* border: thin solid red;   */
     /* display: none; */
 }
 a:-webkit-any-link {
@@ -41,11 +44,68 @@ a:-webkit-any-link {
     color: white;
     background-color: #4B6BFB;
   }
- /* button :hover{
-    background-color: white;
-    color: blue;
-  } */
 .navbar__button{
     width: 20%;
-    /* display: flex; */
+}
+.checkbtn{
+  font-size: 30px;
+  /* color: white; */
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check{
+  display: none;
+  position: relative;
+}
+
+@media(min-width: 200px) and (max-width: 900px){
+  nav{
+    position: relative;
+    z-index: 9;
+    width: 100%;
+  }
+  .navbar{
+    display: block;
+    width: 85%;
+    height: 80px;
+    margin: auto;
+    z-index: 9;
+    align-items: center;
+}
+.logo{
+  width: 150px;
+  position: relative;
+  top: 20px;
+  
+}
+.checkbtn{
+  display: block;
+}
+.navbar__link{
+  display: block; 
+  background: red;
+  position: fixed;
+  width: 80%;
+  height: calc(100vh - 80px);
+  text-align: center;
+  top: 80px;
+  left: -100%;
+  transition: all .5s;
+  margin: 0;
+}
+a{
+  display: block;
+}
+#check:checked ~ .navbar__link{
+  left: 0;
+}
+.nav_link{
+  display: block;
+  margin: 50px 0;
+  border: thin solid blue;
+  line-height: 30px;
+}
 }

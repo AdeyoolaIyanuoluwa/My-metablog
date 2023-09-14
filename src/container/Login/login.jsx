@@ -52,7 +52,7 @@ const Login = () => {
         </p>
       </div>
 
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} className={styles.form}>
         <p>Email</p>
         <Input
           maininput={false}

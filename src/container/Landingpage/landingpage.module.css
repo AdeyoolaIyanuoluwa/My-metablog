@@ -109,9 +109,16 @@
   margin: 20px;
 }
 .pageClassName {
-  border: thin solid rgb(114, 107, 107);
-  width: 50%;
+  /* border: thin solid rgb(114, 107, 107); */
+  width: 20px;
   display: flex;
   align-items: center;
   padding-left: 15px;
+  border-radius: 100%;
+  box-shadow: 0.5px 1px 2px 0.5px black;
+  background-color: rgb(184, 176, 176);
+  cursor: pointer;
+}
+.pageClassName :active{
+  background-color: red;
 }

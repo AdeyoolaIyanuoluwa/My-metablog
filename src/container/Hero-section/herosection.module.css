@@ -27,3 +27,23 @@
     text-align: left;
     
 }
+
+@media(min-width: 200px) and (max-width: 900px){
+  .background {
+    height: 89.1vh;
+    background-position: top;
+    background-size: cover;
+  }
+  .background__card {
+    width: 65%;
+    height: 144px;
+    top: 350px;
+    left: 25px;
+    padding: 40px;
+    position: relative;
+  }
+  .background__title{
+      font-size: 20px;
+      
+  }
+}

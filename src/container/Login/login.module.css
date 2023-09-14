@@ -1,10 +1,11 @@
 .signin_container {
     width: 410px;
-    height: 545px;
+    height: 508px;
     position: relative;
     top: 61px;
     gap: 32px;
     margin: auto;
+    border: thin solid red;
   }
   .signin_container_heading_h1 {
     font-size: 24px;
@@ -39,6 +40,7 @@
       left: 360px;
       bottom: 45px;
       color: #757575;
+      font-size: 20px;
   }
   .span{
     text-align: center;
@@ -49,4 +51,20 @@
   .error{
     color: red !important;
   }
-  
+  @media(min-width: 200px) and (max-width: 900px){
+    .signin_container {
+      width: 350px;
+      position: relative;
+      top: 61px;
+      gap: 32px;
+      margin: auto;
+      border: thin solid blue;
+    }
+    .hideicon{
+      position: relative;
+      left: 260px;
+      bottom: 45px;
+      color: #757575;
+      font-size: 20px;
+  }
+  }
