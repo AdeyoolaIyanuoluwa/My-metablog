@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-children-prop */
 import { useEffect, useState } from "react";
@@ -24,6 +25,7 @@ const Langingpage = () => {
   const date = moment().format("MMMM Do, YYYY");
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const all = useSelector(getPost);
+  console.log(all);
   const data = all.posts?.data?.data;
   const [search, setSearch] = useState("");
   const [authorsName, setAuthorsName] = useState(true);
@@ -36,7 +38,7 @@ const Langingpage = () => {
   };
 
   useEffect(() => {
-    dispatch(allpost({ page: page }));
+    dispatch(allpost({ ...queries, page: 1 }));
   }, [dispatch, page]);
 
   // useEffect(() => {

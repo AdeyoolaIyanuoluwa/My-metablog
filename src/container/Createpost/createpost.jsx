@@ -9,6 +9,7 @@ import { createpostSchema } from "./createpostSchema";
 import { addpost } from "../../features/post/addpostactions";
 import {  useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { getPost } from "../../features/post/addpostslice";
 // import { Editor, convertToRaw } from "draft-js";
 // import { EditorState } from "draft-js";
 // import { convertFromRaw } from "draft-js";
@@ -16,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 const Createpost = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
-  const { loading, userInfo } = useSelector((state) => state.posts);
+  const { loading, posts } = useSelector(getPost);
   const [image, setimage] = useState({ preview: "",raw: "" });
   // const [editorState, setEditorState] = useState(() =>{
   //   if (localStorage.getItem('editor-state')) {
@@ -29,10 +30,10 @@ const Createpost = () => {
 
 
   useEffect(() => {
-    if(userInfo?.status === "Successful"){
+    if(posts?.status === "Successful"){
         navigate("/landingpage")
     }
-  }, [navigate, userInfo?.status])
+  }, [navigate, posts?.status])
   
   const handleimage = (e) => {
     if (e.target.files.length) {
