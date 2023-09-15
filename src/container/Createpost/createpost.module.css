@@ -1,7 +1,5 @@
 .body{
-    /* background-color: ; */
-    width: 100%;
-    
+    width: 100%;  
 }
 .input_box{
     margin: auto;
@@ -34,4 +32,17 @@
 }
 .image{
     width: 100%;
+}
+
+@media (min-width: 200px) and (max-width: 900px) {
+    .input_box{
+        width: 100%;   
+    }
+    .input_box__textarea{
+        min-width: 85%;
+        height: 300px;
+        padding: 25px 30px;
+        font-size: large;
+        border-radius: 50px
+    }
 }
