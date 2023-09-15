@@ -2,7 +2,7 @@ import axios from "axios";
 
 const instance = axios.create({
     // eslint-disable-next-line no-undef
-    baseURL: `${process.env.REACT_APP_BLOG_URL}/api/v1`,
+    baseURL: `${process.env.VITE_REACT_APP_BLOG_URL}/api/v1`,
     headers: {
         'Content-Type': 'application/json',
         // eslint-disable-next-line no-dupe-keys

@@ -35,9 +35,9 @@ const Langingpage = () => {
     perPage: 3,
   };
 
-  // useEffect(() => {
-  //   dispatch(allpost({ page: page }));
-  // }, [dispatch, page]);
+  useEffect(() => {
+    dispatch(allpost({ page: page }));
+  }, [dispatch, page]);
 
   // useEffect(() => {
   //   dispatch(getLatestPost());
